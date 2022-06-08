@@ -19,15 +19,19 @@ public class Restaurant {
 
     public boolean isRestaurantOpen() {
         boolean isOpen = false;
-        if (getCurrentTime().isBefore(this.openingTime)){
-            isOpen = false;
-        }
-        else if(getCurrentTime().isAfter(this.closingTime)){
-            isOpen = false;
-        }
-        else{
+        if (this.getCurrentTime().isAfter(this.openingTime) && this.getCurrentTime().isBefore(this.closingTime)){
+            System.out.print("Between opening time and closing time.");
             isOpen = true;
         }
+        else if(this.getCurrentTime().isBefore(this.openingTime)){
+            System.out.print("Before opening time.");
+            isOpen = false;
+        }
+        else if(this.getCurrentTime().isAfter(this.closingTime)){
+            System.out.print("After closing time.");
+            isOpen = false;
+        }
+
         return isOpen;
         //DELETE ABOVE STATEMENT AND WRITE CODE HERE
     }
